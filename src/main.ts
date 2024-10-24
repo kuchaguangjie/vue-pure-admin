@@ -54,6 +54,11 @@ import "tippy.js/themes/light.css";
 import VueTippy from "vue-tippy";
 app.use(VueTippy);
 
+if (import.meta.env.DEV) {
+  const { VITE_AUTHOR2 } = import.meta.env;
+  console.log("二次开发人员: ", VITE_AUTHOR2);
+}
+
 getPlatformConfig(app).then(async config => {
   setupStore(app);
   app.use(router);
